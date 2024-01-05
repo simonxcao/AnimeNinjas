@@ -27,7 +27,8 @@ const User = require('./user')
 const { body, validationResult } = require('express-validator')
 const { populate } = require('./seeding')
 const MongoStore = require('connect-mongo')(session);
-const dbURL = process.env.DB_URL
+const dbURL = process.env.DB_URL || "mongodb://localhost:27017/Anime"
+const secret = process.env.SECRET || 'needbettersecret'
 
 
 
@@ -39,13 +40,13 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 // 'mongodb://localhost:27017/Anime'
-mongoose.connect('mongodb://localhost:27017/Anime')
+mongoose.connect(dbURL)
 
 app.use(express.static('public'))
 
 const store = new MongoStore({
-    url: 'mongodb://localhost:27017/Anime',
-    secret: 'needbettersecret',
+    url: dbURL,
+    secret,
     touchAfter: 24 * 60 * 60
 })
 store.on("error", function (e) {
@@ -54,7 +55,7 @@ store.on("error", function (e) {
 
 const sessionConfig = {
     store,
-    secret: 'needbettersecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {

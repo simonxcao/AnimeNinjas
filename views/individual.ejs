@@ -183,58 +183,61 @@
                         </form>
                         <hr>
                         <% } %>
-                            <div class="containers">
-                                <div class="board">
-                                    <h2>Word from some of our users</h2>
+                            <% if (single.reviews.length> 0) {%>
 
-                                    <!-- Slider main container -->
-                                    <div class="swiper">
-                                        <!-- Additional required wrapper -->
+                                <div class="containers">
+                                    <div class="board">
+                                        <h2>Word from some of our users</h2>
 
-                                        <div class="swiper-wrapper">
+                                        <!-- Slider main container -->
+                                        <div class="swiper">
+                                            <!-- Additional required wrapper -->
 
-                                            <% for (let review of single.reviews) { %>
+                                            <div class="swiper-wrapper">
 
-                                                <div class="swiper-slide">
-                                                    <div class="flex">
-                                                        <div class="comments">
-                                                            <%= review.body %>
-                                                        </div>
-                                                        <div class="profile">
-                                                            <p class="starability-result"
-                                                                data-rating="<%= review.rating %>">
-                                                                Rated: <%= review.rating %> stars
-                                                            </p>
-                                                            <h3>
-                                                                <%= review.author.username %>
-                                                            </h3>
-                                                            <% if (currentUser && review.author.equals(currentUser._id))
-                                                                { %>
-                                                                <form
-                                                                    action="/index/<%= single._id %>/reviews/<%= review._id %>?_method=DELETE"
-                                                                    method="post">
-                                                                    <button><i
-                                                                            class="fa-regular fa-trash-can fa-2x"></i></button>
-                                                                </form>
-                                                                <% } %>
+                                                <% for (let review of single.reviews) { %>
+
+                                                    <div class="swiper-slide">
+                                                        <div class="flex">
+                                                            <div class="comments">
+                                                                <%= review.body %>
+                                                            </div>
+                                                            <div class="profile">
+                                                                <p class="starability-result"
+                                                                    data-rating="<%= review.rating %>">
+                                                                    Rated: <%= review.rating %> stars
+                                                                </p>
+                                                                <h3>
+                                                                    <%= review.author.username %>
+                                                                </h3>
+                                                                <% if (currentUser &&
+                                                                    review.author.equals(currentUser._id)) { %>
+                                                                    <form
+                                                                        action="/index/<%= single._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                                                        method="post">
+                                                                        <button><i
+                                                                                class="fa-regular fa-trash-can fa-2x"></i></button>
+                                                                    </form>
+                                                                    <% } %>
+                                                            </div>
+
                                                         </div>
 
                                                     </div>
+                                                    <% } %>
 
-                                                </div>
-                                                <% } %>
+                                            </div>
+
+
+                                            <!-- If we need navigation buttons -->
+                                            <div class="swiper-button-prev"></div>
+                                            <div class="swiper-button-next"></div>
 
                                         </div>
 
-
-                                        <!-- If we need navigation buttons -->
-                                        <div class="swiper-button-prev"></div>
-                                        <div class="swiper-button-next"></div>
-
                                     </div>
-
                                 </div>
-                            </div>
+                                <% } %>
 
 
 
@@ -242,9 +245,9 @@
 
 
 
-                            <script src="/navbarcode.js"></script>
-                            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-                            <script src="/individualcode.js"></script>
+                                    <script src="/navbarcode.js"></script>
+                                    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                                    <script src="/individualcode.js"></script>
 
 </body>
 
