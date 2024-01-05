@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Index</title>
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/indexstyle.css">
+    <script src="https://kit.fontawesome.com/c8cd1b39ea.js" crossorigin="anonymous"></script>
+    <link href="//db.onlinewebfonts.com/c/73fedd912ba11f583a359ce4c2e742ed?family=Ninja+Naruto" rel="stylesheet"
+        type="text/css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo"><i class="fa-solid fa-user-ninja"></i> AnimeNinja</a>
+            <div class="navbar_toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links">
+                        Home
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/favorite" class="navbar_links">
+                        Favorites
+                    </a>
+                </li>
+
+
+                <li class="navbar_item">
+                    <a href="/index" class="navbar_links">
+                        Index
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/explore" class="navbar_links">
+                        Explore
+                    </a>
+                </li>
+
+
+
+
+
+                <% if (!currentUser) { %>
+
+                    <li class="navbar_item">
+                        <a href="/login" class="navbar_links">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="navbar_btn">
+                        <a href="/register" class="button">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <% }else { %>
+
+                        <li class="navbar_item">
+                            <a href="/logout" class="navbar_links">
+                                Logout
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <h1>All Animes</h1>
+        <ul>
+            <% for (let each of AllAnime) {%>
+                <li>
+                    <a href="/index/<%=each._id%>">
+                        <%=each.name%>
+                    </a>
+
+                </li>
+                <% } %>
+        </ul>
+
+
+    </div>
+
+
+
+    <script src="/navbarcode.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/homestyle.css">
+    <script src="https://kit.fontawesome.com/c8cd1b39ea.js" crossorigin="anonymous"></script>
+    <link href="//db.onlinewebfonts.com/c/73fedd912ba11f583a359ce4c2e742ed?family=Ninja+Naruto" rel="stylesheet"
+        type="text/css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo"><i class="fa-solid fa-user-ninja"></i> AnimeNinja</a>
+            <div class="navbar_toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links">
+                        Home
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/favorite" class="navbar_links">
+                        Favorites
+                    </a>
+                </li>
+
+
+                <li class="navbar_item">
+                    <a href="/index" class="navbar_links">
+                        Index
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/explore" class="navbar_links">
+                        Explore
+                    </a>
+                </li>
+
+
+
+
+
+                <% if (!currentUser) { %>
+
+                    <li class="navbar_item">
+                        <a href="/login" class="navbar_links">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="navbar_btn">
+                        <a href="/register" class="button">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <% }else { %>
+
+                        <li class="navbar_item">
+                            <a href="/logout" class="navbar_links">
+                                Logout
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+
+    <div class="main">
+        <div class="main_container">
+            <div class="main_content">
+                <h1>Search</h1>
+                <h2>Favorite</h2>
+                <p>Find new animes.</p>
+                <button class="main_btn"><a href="/explore">Start</a></button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <script src="/navbarcode.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+form {
+
+    margin: 20px 20px;
+    height: 100%;
+    padding: 10px 10px;
+}
+
+form div {
+    margin-top: 20px;
+
+}
+
+form button {
+    margin-top: 20px;
+    padding: 5px 5px;
+}
+
+label {
+    display: inline-block;
+    width: 100%;
+}
+
+input {
+    padding: 5px 10px;
+    border: 2px solid white;
+    caret-color: white;
+    background-image: linear-gradient(to top, #d44234 0%, #d1db42 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+
+
+}

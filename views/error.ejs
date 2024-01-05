@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Animes</title>
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/explorestyle.css">
+    <script src="https://kit.fontawesome.com/c8cd1b39ea.js" crossorigin="anonymous"></script>
+    <link href="//db.onlinewebfonts.com/c/73fedd912ba11f583a359ce4c2e742ed?family=Ninja+Naruto" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="/errorstyle.css">
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo"><i class="fa-solid fa-user-ninja"></i> AnimeNinja</a>
+            <div class="navbar_toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links">
+                        Home
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/favorite" class="navbar_links">
+                        Favorites
+                    </a>
+                </li>
+
+
+                <li class="navbar_item">
+                    <a href="/index" class="navbar_links">
+                        Index
+                    </a>
+                </li>
+
+                <li class="navbar_item">
+                    <a href="/explore" class="navbar_links">
+                        Explore
+                    </a>
+                </li>
+
+
+                <% if (!currentUser) { %>
+
+                    <li class="navbar_item">
+                        <a href="/login" class="navbar_links">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="navbar_btn">
+                        <a href="/register" class="button">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <% }else { %>
+
+                        <li class="navbar_item">
+                            <a href="/logout" class="navbar_links">
+                                Logout
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="text">
+        <h1>
+            <%= err.message %>
+        </h1>
+        <h2>404</h2>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="/navbarcode.js"></script>
+    <script src="/errorcode.js"></script>
+
+
+
+
+
+
+
+</body>
+
+</html>
