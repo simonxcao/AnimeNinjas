@@ -28,7 +28,7 @@ const User = require('./user')
 const { body, validationResult } = require('express-validator')
 const { populate } = require('./seeding')
 const MongoStore = require('connect-mongo');
-const dbURL = process.env.DB_URL || "mongodb://localhost:27017/Anime"
+const dbURL = process.env.DB_URL
 const secret = process.env.SECRET || 'needbettersecret'
 
 
