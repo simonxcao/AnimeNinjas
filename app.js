@@ -186,6 +186,7 @@ app.get('/explore', catchAsync(async (req, res) => {
     // }
 
     const data = await EachAnime.find()
+    const page = req.url
 
     const apiLink = 'https://api.jikan.moe/v4/genres/anime'
     const resp = await axios.get(apiLink)
@@ -193,7 +194,7 @@ app.get('/explore', catchAsync(async (req, res) => {
     animeName = ""
     animeGenre = ""
 
-    res.render('explore', { data: data, genres: genresAll })
+    res.render('explore', { data: data, genres: genresAll, page: page })
 }))
 
 app.get('/searching', catchAsync(async (req, res) => {
@@ -201,12 +202,13 @@ app.get('/searching', catchAsync(async (req, res) => {
 
     animeName = TitleCase(req.query.q)
     animeGenre = req.query.genre.slice(0, -1)
+    const page = req.url
     const data = await EachAnime.find()
 
     const apiLink = 'https://api.jikan.moe/v4/genres/anime'
     const resp = await axios.get(apiLink)
     const genresAll = resp.data.data
-    res.render('explore', { data: data, genres: genresAll })
+    res.render('explore', { data: data, genres: genresAll, page: page })
 
 }))
 
