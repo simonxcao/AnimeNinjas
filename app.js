@@ -26,7 +26,7 @@ const User = require('./user')
 
 const { body, validationResult } = require('express-validator')
 const { populate } = require('./seeding')
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 const dbURL = process.env.DB_URL || "mongodb://localhost:27017/Anime"
 const secret = process.env.SECRET || 'needbettersecret'
 
@@ -44,9 +44,11 @@ mongoose.connect(dbURL)
 
 app.use(express.static('public'))
 
-const store = new MongoStore({
-    url: dbURL,
-    secret,
+const store = MongoStore.create({
+    mongoUrl: dbURL,
+    crypto: {
+        secret
+    },
     touchAfter: 24 * 60 * 60
 })
 store.on("error", function (e) {
